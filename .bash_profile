@@ -1,7 +1,15 @@
-source ~/bin/git-completion.bash
-source ~/bin/tab-functions.bash
-source ~/bin/java-version.bash
-source ~/bin/git-flow-completion.bash
+if [ -f ~/bin/git-completion.bash ]; then
+	source ~/bin/git-completion.bash
+fi
+if [ -f ~/bin/tab-functions.bash ]; then
+	source ~/bin/tab-functions.bash
+fi
+if [ -f ~/bin/java-version.bash ]; then
+	source ~/bin/java-version.bash
+fi
+if [ -f ~/bin/git-flow-completion.bash ]; then
+	source ~/bin/git-flow-completion.bash
+fi
 
 #enables color in the terminal bash shell export
 CLICOLOR=1
