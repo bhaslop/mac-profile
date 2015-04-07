@@ -1,0 +1,5 @@
+if [ -z "$1" ]; then
+	open -a "IntelliJ IDEA 14" .
+else
+	open -a "IntelliJ IDEA 14" $1
+fi
