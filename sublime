@@ -1,0 +1,5 @@
+if [ -z "$1" ]; then
+	open -a "Sublime Text 2" .
+else
+	open -a "Sublime Text 2" $1
+fi
