@@ -54,6 +54,14 @@ fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/sbin:/opt/redis/src:/opt/gradle/bin:~/bin:/opt/mongodb/bin"
 
+if [ -d ~/opt/mongo ]; then
+	export PATH=$PATH:~/opt/mongo/bin
+fi
+
+if [ -d ~/opt/cassandra ]; then
+	export PATH=$PATH:~/opt/cassandra/bin
+fi
+
 launchctl setenv PATH $PATH
 
 export GRAILS_OPTS="-XX:MaxPermSize=1024m -Xmx1024M -server"
@@ -70,3 +78,18 @@ fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/bhaslop/.gvm/bin/gvm-init.sh" && ! $(which gvm-init.sh) ]] && source "/Users/bhaslop/.gvm/bin/gvm-init.sh"
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH
