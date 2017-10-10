@@ -1,14 +1,22 @@
 #!/bin/bash -l
 
-
 if [ -f application.properties ]; then
-	version=`cat application.properties | grep grails.version | awk 'BEGIN {FS = "="} ; { print $2 }'`
+	grails_version=`cat application.properties | grep grails.version | awk 'BEGIN {FS = "="} ; { print $2 }'`;
+	java_version=`cat grails-app/conf/BuildConfig.groovy | grep "grails.project.target.level" | awk 'BEGIN {FS = "="} ; { print $2 }' | tr -d '[[:space:]]' | awk 'BEGIN {FS = "."} ; { print $2 }'`;
 
-	gvm use grails $version
+	if [ -z "$java_version" ]; then
+		java_version=6;
+	fi
 
-	grails "$@"
+	echo "Using java $java_version"
+
+	jdk $java_version;
+
+	echo "Using grails $grails_version"
+
+	sdk use grails $grails_version;
+
+	grails "$@";
 else
-	echo "not a grails application"
+	echo "not a grails application";
 fi
-
-
