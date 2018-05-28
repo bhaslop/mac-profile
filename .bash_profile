@@ -11,6 +11,8 @@ if [ -f ~/bin/git-flow-completion.bash ]; then
 	source ~/bin/git-flow-completion.bash
 fi
 
+export GOPATH=/Users/bhaslop/code/go
+
 #enables color in the terminal bash shell export
 CLICOLOR=1
 #sets up the color scheme for list export
@@ -52,7 +54,7 @@ if [ -f ~/.bash_private_profile ]; then
 fi
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/sbin:/opt/redis/src:/opt/gradle/bin:~/bin:/opt/mongodb/bin"
+export PATH="/usr/local/heroku/bin:$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/sbin:/opt/redis/src:/opt/gradle/bin:~/bin:/opt/mongodb/bin:$GOPATH/bin"
 
 if [ -d ~/opt/mongo ]; then
 	export PATH=$PATH:~/opt/mongo/bin
@@ -86,3 +88,8 @@ if [ -d /Library/Frameworks/Python.framework/Versions/3.5 ]; then
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
 fi
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
