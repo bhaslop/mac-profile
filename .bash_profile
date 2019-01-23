@@ -47,8 +47,6 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-export JAVA_OPTS="-Xms256m -Xmx768m -XX:MaxPermSize=768m"
-
 if [ -f ~/.bash_private_profile ]; then
 	source ~/.bash_private_profile
 fi
@@ -92,4 +90,13 @@ fi
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/bhaslop/.sdkman"
+[[ -s "/Users/bhaslop/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/bhaslop/.sdkman/bin/sdkman-init.sh"
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH

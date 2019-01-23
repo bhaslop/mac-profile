@@ -16,7 +16,7 @@ if [ -f application.properties ]; then
 
 	sdk use grails $grails_version;
 
-	grails "$@";
+	grails -Dhttps.protocols=TLSv1.2 "$@";
 else
 	echo "not a grails application";
 fi
