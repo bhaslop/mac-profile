@@ -11,7 +11,12 @@ if [ -f ~/bin/git-flow-completion.bash ]; then
 	source ~/bin/git-flow-completion.bash
 fi
 
+if [ -f ~/.sdkman/candidates/springboot/current/shell-completion/bash/spring ]; then
+	source ~/.sdkman/candidates/springboot/current/shell-completion/bash/spring
+fi
+
 export GOPATH=/Users/bhaslop/code/go
+export ANDROID_HOME=/Users/bhaslop/bin/android-sdk
 
 #enables color in the terminal bash shell export
 CLICOLOR=1
@@ -62,7 +67,7 @@ if [ -d ~/opt/cassandra ]; then
 	export PATH=$PATH:~/opt/cassandra/bin
 fi
 
-launchctl setenv PATH $PATH
+#launchctl setenv PATH $PATH
 
 export GRAILS_OPTS="-XX:MaxPermSize=1024m -Xmx1024M -server"
 export GRADLE_HOME="/opt/gradle"
@@ -100,3 +105,15 @@ export SDKMAN_DIR="/Users/bhaslop/.sdkman"
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bhaslop/google-cloud-sdk/path.bash.inc' ]; then . '/Users/bhaslop/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bhaslop/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/bhaslop/google-cloud-sdk/completion.bash.inc'; fi
+# Added by furycli:
+export PATH="/Users/bhaslop/Library/Python/3.7/bin:$PATH"

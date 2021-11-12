@@ -2,7 +2,19 @@
 
 echo "Creating remote diff"
 
-repo=`git remote -v | grep -m 1 "(push)" | sed -e "s/.*github.com[:/]\(.*\)\.git.*/\1/"`;
+
+haseserver=`git remote -v | grep eserver`
+
+echo $haseserver
+
+if [ -z "$haseserver" ]; then
+	repo=`git remote -v | grep -m 1 "(push)" | sed -e "s/.*github.com[:/]\(.*\)\.git.*/\1/"`;
+	echo "no eserver"
+else
+	repo=`git remote -v | grep -m 2 "(push)" | tail -n 1 | sed -e "s/.*github.com[:/]\(.*\)\.git.*/\1/"`;
+	echo "with eserver"
+fi
+
 branch=`git name-rev --name-only HEAD`;
 
 tobranch="master";
@@ -12,5 +24,7 @@ if [ ! -z "$1" ]; then
 fi
 
 echo "creating diff for $tobranch...$branch";
+
+echo "https://github.com/$repo/compare/$tobranch...$branch"
 
 open https://github.com/$repo/compare/$tobranch...$branch
